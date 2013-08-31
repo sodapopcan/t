@@ -218,7 +218,7 @@ class TaskDict(object):
         plen = max(map(lambda t: len(t[label]), tasks.values())) if tasks else 0
         for _, task in sorted(tasks.items()):
             if grep.lower() in task['text'].lower():
-                p = '%s - ' % task[label].ljust(plen) if not quiet else ''
+                p = '\033[90m%s\033[0m ' % task[label].ljust(plen) if not quiet else ''
                 print p + task['text']
 
     def write(self, delete_if_empty=False):
